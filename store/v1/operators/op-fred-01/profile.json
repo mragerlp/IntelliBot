@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "operatorId": "op-fred-01",
+  "displayName": "Fred",
+  "role": "regular-idle",
+  "steamIdFake": "76500000000000902",
+  "configPath": "config/operators/fred.operator.json"
+}

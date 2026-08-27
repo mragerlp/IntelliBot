@@ -1,0 +1,11 @@
+{
+  "protocolVersion": 1,
+  "requestId": "req-b08-bounds01",
+  "sessionId": "sess-fixture-0001",
+  "botHandle": "bh-fixture-01",
+  "seq": 8,
+  "expectedStateVersion": 7,
+  "expiresUtc": "2030-01-01T00:00:00Z",
+  "action": "move.bounded",
+  "args": { "moveTarget": { "x": 99999, "y": 0, "z": 0 } }
+}

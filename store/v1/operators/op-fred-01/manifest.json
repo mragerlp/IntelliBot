@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "operatorId": "op-fred-01",
+  "storeVersion": "v1",
+  "createdUtc": "2026-08-22T09:15:00Z",
+  "checksumAlgo": "SHA-256",
+  "lastKnownGood": {
+    "profile.json": {
+      "sha256": "9974AFF0AAB191E270D813B431A4AA3CF29D2ADF26D0B0A198341A905E442EFA",
+      "bytes": 207,
+      "updatedUtc": "2026-08-22T09:15:00Z"
+    },
+    "state.json": {
+      "sha256": "619F2072C048A518498F985B772F24578CF9B333BCCDAEFD993FC4E0D9177BD6",
+      "bytes": 178,
+      "updatedUtc": "2026-08-22T09:15:00Z"
+    },
+    "summary-current.json": {
+      "sha256": "E8F31B797C8C28857140FB11BF7C16A40356A5C74FB55FA5230EA385237C6C3B",
+      "bytes": 150,
+      "updatedUtc": "2026-08-22T09:15:00Z"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "operatorId": "op-grok-01",
+  "storeVersion": "v1",
+  "createdUtc": "2026-08-22T09:15:00Z",
+  "checksumAlgo": "SHA-256",
+  "lastKnownGood": {
+    "profile.json": {
+      "sha256": "19DFF89504D718704B369A184BB1C00027051DDFD97402F691C83D847353ABDA",
+      "bytes": 213,
+      "updatedUtc": "2026-08-22T09:15:00Z"
+    },
+    "state.json": {
+      "sha256": "DBB724D2CB8EF951D302D1A1E2FCE36955FF01E0A251DD75AF030CB5143CEC9C",
+      "bytes": 178,
+      "updatedUtc": "2026-08-22T09:15:00Z"
+    },
+    "summary-current.json": {
+      "sha256": "04DD1DE2DBF1E8FFE994DB98B5D274257C84DF022E3B86D56F8E556F854850DD",
+      "bytes": 150,
+      "updatedUtc": "2026-08-22T09:15:00Z"
+    }
+  }
+}

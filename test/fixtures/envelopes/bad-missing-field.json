@@ -1,0 +1,9 @@
+{
+  "protocolVersion": 1,
+  "requestId": "req-b05-missing1",
+  "sessionId": "sess-fixture-0001",
+  "seq": 5,
+  "expectedStateVersion": 4,
+  "expiresUtc": "2030-01-01T00:00:00Z",
+  "action": "status"
+}

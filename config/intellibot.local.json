@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "configId": "intellibot-local-vengeance",
+  "createdUtc": "2026-08-22T09:15:00Z",
+  "product": {
+    "workingName": "IntelliBot",
+    "nameRatified": false,
+    "descriptionRatified": false,
+    "licenseRatified": false
+  },
+  "store": {
+    "localRoot": "store/v1",
+    "runtimeStorePrefix": "intellibot/v1",
+    "writePolicy": "host-only",
+    "callerSuppliedPathsAccepted": false,
+    "checksumAlgo": "SHA-256",
+    "limits": {
+      "maxEpisodesPerOperator": 512,
+      "maxEpisodeBytes": 16384,
+      "maxTotalBytesPerOperator": 4194304,
+      "retentionDays": 90
+    },
+    "failMode": "fail-closed",
+    "failClosedOn": [
+      "corrupt-json",
+      "checksum-mismatch",
+      "future-schema-version",
+      "limit-exceeded"
+    ],
+    "missingMemoryPolicy": "safe-defaults; missing memory must never prevent safe spawn or stop"
+  },
+  "controlPlane": {
+    "transport": "mcp-stdio (design only; not implemented)",
+    "gameLink": "loopback websocket, host-initiated outbound (design only; not implemented)",
+    "sessionContract": "contracts/session-v1.schema.json",
+    "toolSurface": "contracts/tool-surface-v1.md"
+  },
+  "operators": [
+    "config/operators/grok.operator.json",
+    "config/operators/fred.operator.json"
+  ],
+  "holds": {
+    "genesisCommit": "HELD -- board 2006; name/description/licence unratified",
+    "push": "NEVER without principal word",
+    "hostPlayPawn": "BARRED until Gate-0 persistence containment passes -- boards 2003/2005",
+    "sbproj": "not created -- requires successor ruling",
+    "licenseFile": "not created -- licence posture unratified"
+  },
+  "secrets": "none stored in this tree; secrets never transit -- name and location only"
+}

@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "intellibot/contracts/session-v1.schema.json",
+  "title": "IntelliBot session action envelope, v1",
+  "description": "Every control-plane action crosses the game link in this envelope. Unknown fields, unknown actions, stale sequence numbers, expired envelopes, and future protocol versions are all rejected fail-closed. Design contract only; no transport is implemented yet.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocolVersion",
+    "requestId",
+    "sessionId",
+    "botHandle",
+    "seq",
+    "expectedStateVersion",
+    "expiresUtc",
+    "action"
+  ],
+  "properties": {
+    "protocolVersion": {
+      "type": "integer",
+      "const": 1,
+      "description": "Envelope version. Receivers reject any version they do not implement."
+    },
+    "requestId": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 64,
+      "description": "Unique per request; duplicate requestIds are rejected (replay guard)."
+    },
+    "sessionId": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 64,
+      "description": "Issued by the host side at session open; dies with the play session."
+    },
+    "botHandle": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 64,
+      "description": "Opaque handle for one spawned operator pawn. Never a raw GameObject id, never a player slot, never resolvable to a human player."
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monotonic per session. Equal-or-lower than last accepted is rejected (E_STALE_SEQ)."
+    },
+    "expectedStateVersion": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Optimistic concurrency: the state version the sender believes current. Mismatch is rejected (E_WRONG_STATE_VERSION)."
+    },
+    "expiresUtc": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Envelope is dead after this instant (E_EXPIRED)."
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "status",
+        "operator.spawn",
+        "operator.despawn",
+        "operator.stop",
+        "move.bounded",
+        "look.bounded",
+        "memory.list",
+        "memory.get",
+        "memory.upsert",
+        "memory.delete"
+      ],
+      "description": "v1 tool surface. Everything not listed is excluded by contract; see contracts/tool-surface-v1.md."
+    },
+    "args": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Bounded action arguments. Every field is optional and only read by the action that defines it.",
+      "properties": {
+        "operatorId": {
+          "type": "string",
+          "enum": ["op-grok-01", "op-fred-01"],
+          "description": "operator.spawn only. One operator per handle."
+        },
+        "moveTarget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["x", "y", "z"],
+          "properties": {
+            "x": { "type": "number", "minimum": -50000, "maximum": 50000 },
+            "y": { "type": "number", "minimum": -50000, "maximum": 50000 },
+            "z": { "type": "number", "minimum": -50000, "maximum": 50000 }
+          },
+          "description": "move.bounded only. World units, clamped to the play-space envelope."
+        },
+        "lookYawPitch": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["yaw", "pitch"],
+          "properties": {
+            "yaw": { "type": "number", "minimum": -180, "maximum": 180 },
+            "pitch": { "type": "number", "minimum": -89, "maximum": 89 }
+          },
+          "description": "look.bounded only."
+        },
+        "memoryKey": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]{0,127}$",
+          "description": "memory.* only. Key namespace is flat and validated; never a file path."
+        },
+        "memoryValue": {
+          "type": "string",
+          "maxLength": 16384,
+          "description": "memory.upsert only. Bounded by maxEpisodeBytes."
+        }
+      }
+    }
+  }
+}

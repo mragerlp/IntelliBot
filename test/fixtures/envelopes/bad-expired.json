@@ -1,0 +1,10 @@
+{
+  "protocolVersion": 1,
+  "requestId": "req-b11-expired1",
+  "sessionId": "sess-fixture-0001",
+  "botHandle": "bh-fixture-01",
+  "seq": 11,
+  "expectedStateVersion": 10,
+  "expiresUtc": "2020-01-01T00:00:00Z",
+  "action": "status"
+}
