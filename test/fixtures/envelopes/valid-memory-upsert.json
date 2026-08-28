@@ -1,0 +1,11 @@
+{
+  "protocolVersion": 1,
+  "requestId": "req-v03-mem00001",
+  "sessionId": "sess-fixture-0001",
+  "botHandle": "bh-fixture-01",
+  "seq": 3,
+  "expectedStateVersion": 2,
+  "expiresUtc": "2030-01-01T00:00:00Z",
+  "action": "memory.upsert",
+  "args": { "memoryKey": "lessons.navigation.doorways", "memoryValue": "narrow doorways need slower approach" }
+}

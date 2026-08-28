@@ -1,0 +1,10 @@
+{
+  "protocolVersion": 1,
+  "requestId": "req-b15-tzfree01",
+  "sessionId": "sess-fixture-0001",
+  "botHandle": "bh-fixture-01",
+  "seq": 15,
+  "expectedStateVersion": 14,
+  "expiresUtc": "2030-01-01T00:00:00",
+  "action": "status"
+}

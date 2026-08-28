@@ -1,0 +1,10 @@
+{
+  "protocolVersion": 2,
+  "requestId": "req-b06-protover",
+  "sessionId": "sess-fixture-0001",
+  "botHandle": "bh-fixture-01",
+  "seq": 6,
+  "expectedStateVersion": 5,
+  "expiresUtc": "2030-01-01T00:00:00Z",
+  "action": "status"
+}

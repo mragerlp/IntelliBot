@@ -1,0 +1,13 @@
+# OS noise
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# editor litter
+*.bak
+*.tmp
+*~
+
+# dry-run harness litter (never part of genesis)
+test/scratch/
+test/results/

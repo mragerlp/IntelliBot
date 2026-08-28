@@ -1,0 +1,11 @@
+{
+  "protocolVersion": 1,
+  "requestId": "req-b09-memkey01",
+  "sessionId": "sess-fixture-0001",
+  "botHandle": "bh-fixture-01",
+  "seq": 9,
+  "expectedStateVersion": 8,
+  "expiresUtc": "2030-01-01T00:00:00Z",
+  "action": "memory.get",
+  "args": { "memoryKey": "../../etc/passwd" }
+}

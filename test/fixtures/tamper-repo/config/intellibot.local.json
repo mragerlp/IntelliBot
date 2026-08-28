@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "configId": "intellibot-tamper-fixture",
+  "note": "DRY-RUN FIXTURE ONLY: exists so the harness can prove the loader refuses spawnPermitted=true. Never a real configuration.",
+  "operators": [ "config/operators/grok.operator.json" ]
+}

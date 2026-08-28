@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "operatorId": "op-grok-01",
+  "displayName": "GROK",
+  "seat": "GROK-VENGEANCE (agent-driven)",
+  "role": "superadmin-surface",
+  "steamIdFake": "76500000000000901",
+  "steamIdNote": "TAMPER FIXTURE: deliberately unlawful copy for the dry-run harness",
+  "adapter": {
+    "id": "dxrp-dev",
+    "path": "dxrp-workbench: game/Code/Addons/lifepunch/_dev/IntellibotSession.cs",
+    "class": "play-only editor fixture; never a shipped path"
+  },
+  "storePath": "store/v1/operators/op-grok-01",
+  "bars": [
+    "ORD 2001.1: drive only pawns this seat spawned, identified by GUID; never the principal pawn; never any human player",
+    "ORD 2001.2: bot SuperAdmin exists to exercise the admin surface only; never target a human pawn; never write persistent data",
+    "ORD 2001.3: play-only; the instrument never registers in a shipped path",
+    "GATE-0: no spawn in any Host Play until persistence containment passes (boards 2003/2005)"
+  ],
+  "spawnPermitted": true,
+  "spawnPermittedReason": "TAMPER FIXTURE -- the loader must refuse this file with E_GATE0_HELD"
+}

@@ -1,0 +1,390 @@
+Here is the final paste-ready packet. I shaped it around explicit seams, phased gates, and independent LUNA→GROK verification.
+
+# CVLX — TO FABLE — INTELLIBOT-1 PRODUCT ARCHITECTURE AND PHASED DISPATCH REQUEST
+
+FROM: OPENAI ADVICE — SOL OUTBOX WORKBENCH, folder-attached  
+AS-RUN: GPT-5 family, self-declared UNVERIFIED  
+MACHINE SENSOR: VENGEANCE  
+CLASS: DESIGN / REQUEST FOR DISPATCH — NOT A GO  
+AUTHORITY: Bloodwave remains sole authority for commits, pushes, publication, portal acts, and other irreversible actions. FABLE conducts and boards.  
+
+## Executive request
+
+Please board an IntelliBot successor contract and cut the work into bounded LUNA implementation slices followed by independent GROK review.
+
+Execution order for every slice:
+
+1. FABLE cuts one exact LUNA dispatch with named writable paths and checks.
+2. LUNA implements and returns changed paths, exact check results, proof ceiling, and anything unverified.
+3. GROK independently reviews the diff, compiles or exercises it in the editor when applicable, and reports whether the slice is usable.
+4. FABLE accepts or amends the slice before the next one begins.
+
+LUNA and GROK must never write the same checkout concurrently.
+
+The first runtime slice is blocked by a current persistence hazard described under Gate 0.
+
+## 1. Grounded current state
+
+### BOARD and source facts
+
+- BOARD ordinal 2001 recognizes the current eject-plus-Host-Play instrument but confines it to `_dev`: play-only, never shipped, and never persistent.
+- Current runtime body:
+
+  `D:\Cavelux\dxrp-workbench\game\Code\Addons\lifepunch\_dev\IntellibotSession.cs`
+
+  `LEN=7689`  
+  `SHA-256=3E647E7DD86F0A9716765CFB596470C2D455A5493A5F14AA2263D7BB66E58408`
+
+- The nested product/control-plane repository is:
+
+  `D:\Cavelux\dxrp-workbench\sbox-intellibot`
+
+  It has an unborn `main`, no commits, no remote, and no `.sbproj`. Its present instructions repeat the no-package/no-persistence contract.
+- The candidate GitHub address is [mragerlp/IntelliBot](https://github.com/mragerlp/IntelliBot). Anonymous access currently returns 404; whether it is absent, private, or not yet created is UNVERIFIED.
+- Local name `sbox-intellibot` and proposed remote name `IntelliBot` differ. Do not rename or wire a remote without Bloodwave’s decision.
+- Product description selected by the principal:
+
+  **A persistent, MCP-controlled AI operator framework for s&box.**
+- BOARD ordinal 2002 records that Rider’s local-model lane cannot use configured MCP tools. CORNERMAN Rider can advise and return files, but it must not become the product’s critical control path.
+
+### Selected avatar
+
+Source selected by the principal:
+
+`C:\Users\jared\AppData\Local\Temp\codex-clipboard-126fde73-bc6e-417c-8e0f-189822e9a259.png`
+
+- PNG, 1254 × 1254
+- `LEN=1309531`
+- `SHA-256=6ACC1E6DE69A631F8AAC5E1334753419E6E88EAEE4838343DB6CFEF3323D81C9`
+
+Original CAVELUX logo source:
+
+`D:\Cavelux\cavelux\brand-intake\unnamed.webp`
+
+- `LEN=22870`
+- `SHA-256=59A4E27A61E6605C46A749CB9B73FDB1617F8FED8EBA15B6F333F955D8C3D00C`
+
+Recommended governed destination:
+
+`D:\Cavelux\dxrp-workbench\sbox-intellibot\assets\brand\intellibot-avatar.png`
+
+LUNA should also create `assets\brand\PROVENANCE.md` recording both source pins and the generated-derivative relationship. That promotion requires its own exact-path dispatch because the selected source is in a temporary directory.
+
+## 2. Critical Gate 0 — persistence containment
+
+Implementation and publication must HOLD until this gate passes.
+
+### Source-proven hazard
+
+- `SnapshotSystem.cs` enumerates every `ISnapshot` with `SnapshotType.Player` and sends the serialized snapshot through `ServerApiClient.SaveSnapshot`.
+- No `IsDebugPlayer`, IntelliBot, or other synthetic-player exclusion was found in that path.
+- `Player.cs` makes every `Player` an `ISnapshot` and serializes identity and game-state fields including SteamId, position, job, health, and equipment.
+- `StaffMenuTestBots.cs` marks GROK/Fred-style pawns as `IsDebugPlayer`, but still registers them as `Player` objects.
+- The live editor log repeatedly reports snapshot saves with `players=3` while Bloodwave, GROK, and Fred are present.
+
+Exact attribution of all three outbound DTOs was not decoded, so actual server receipt of GROK/Fred is UNVERIFIED. Their eligibility for serialization is source-proven.
+
+### Required Gate 0 repair
+
+FABLE should cut `LUNA-INTELLIBOT-G0` to:
+
+1. Define a durable transient synthetic-actor contract or registry. A fake name, fake SteamId, or `IsDebugPlayer` alone is not a sufficient security boundary.
+2. Census the DXRP persistence sinks that consume player identity or state.
+3. Exclude registered transient synthetic actors from snapshots and any identified portal, economy, inventory, statistics, sanction, or analytics persistence.
+4. Inspect the actual serialized/API-bound payload.
+5. Prove that a save containing Bloodwave, GROK, and Fred includes the human record but zero GROK/Fred identity, position, job, health, rank, wallet, or equipment records.
+6. Preserve existing unrelated dirty work and use explicit path-scoped staging only if later authorized.
+
+If the real API path cannot be safely tested, use an authorized disposable/no-API harness. Do not infer PASS from a log message or bot name.
+
+## 3. Product definition
+
+IntelliBot is a CAVELUX product. DXRP and LifePunch are its first proving environment, not shipped dependencies.
+
+Product promise:
+
+> Slap the bot in. Your existing agent connection supplies the intelligence; IntelliBot supplies the safe s&box actor, control contract, persistence, and replication.
+
+Version 1 means:
+
+- The customer keeps their model, provider, credentials, skills, reasoning history, and provider-side memory in their own IDE or terminal.
+- IntelliBot supplies a host-authoritative Operator actor and bounded control API.
+- All ordinary players see the Operator through normal s&box replication.
+- Game-side memory stores compact, structured Operator episodes and summaries.
+- “Learning” means persistent retrieval and accumulated structured experience—not model-weight training.
+- No CAVELUX-hosted inference service is required.
+- No DXRP, LifePunch, GROK, Rider, Fobiat, Chromr, or ClaudeBridge dependency appears in the reusable core.
+
+## 4. Recommended architecture
+
+```text
+Customer model / provider / IDE
+              |
+        MCP over stdio
+              |
+   Local IntelliBot sidecar
+              |
+  Versioned loopback WebSocket
+  initiated by the s&box host
+              |
+ Host-authoritative IntelliBot runtime
+              |
+ Package-owned session and bot registry
+              |
+       Game adapter contract
+              |
+   Explicitly spawned Operator pawn
+              |
+      Normal s&box replication
+              |
+       All connected players
+```
+
+The runtime core must be transport-neutral.
+
+For GROK’s development lane, an explicitly development-only adapter may expose the same narrow contract through the Facepunch native editor MCP. It must not proxy the broad editor bridge or become the production security boundary.
+
+The external sidecar is the only model-facing MCP server in the consumer design. Prefer MCP stdio. The game initiates a loopback WebSocket connection carrying a small versioned action protocol—not tunneled MCP or unrestricted JSON-RPC.
+
+## 5. Product/runtime split
+
+The existing `_dev` body remains a disposable proving fixture. Do not move it wholesale into a shipped directory.
+
+A new FABLE ruling must explicitly supersede the current “no `.sbproj`, never shipped” rule only for the new product tree.
+
+Proposed source shape:
+
+```text
+sbox-intellibot/
+├─ intellibot.sbproj                 # Type: library; only after successor ruling
+├─ Code/
+│  ├─ Core/
+│  │  ├─ IntelliBotOperator.cs
+│  │  ├─ IntelliBotContracts.cs
+│  │  ├─ IntelliBotController.cs
+│  │  └─ IIntelliBotGameAdapter.cs
+│  ├─ Memory/
+│  │  ├─ IntelliBotMemoryStore.cs
+│  │  └─ IntelliBotMemoryModels.cs
+│  └─ Transport/
+│     └─ IntelliBotHostBridge.cs
+├─ sidecar/
+│  ├─ README.md
+│  ├─ src/
+│  └─ tests/
+├─ dev-adapters/
+│  ├─ sbox-editor/
+│  └─ dxrp/
+├─ contracts/
+│  ├─ session-v1.schema.json
+│  ├─ tool-surface-v1.md
+│  └─ failure-codes.md
+├─ assets/
+│  └─ brand/
+│     ├─ intellibot-avatar.png
+│     └─ PROVENANCE.md
+├─ docs/
+│  ├─ ARCHITECTURE.md
+│  ├─ SAFETY-CONTRACT.md
+│  ├─ PERSISTENCE.md
+│  ├─ DXRP-INTEGRATION.md
+│  └─ VERIFICATION.md
+├─ README.md
+├─ SECURITY.md
+└─ LICENSE
+```
+
+Exact s&box package layout and archive exclusions remain UNVERIFIED until LUNA scaffolds the library using a current working package as precedent and GROK validates it from a separate consumer project.
+
+## 6. Control and data contracts
+
+Every mutation carries:
+
+- protocol version
+- request ID
+- session ID
+- opaque bot handle
+- monotonic sequence
+- expected state version
+- expiry
+- fixed action kind
+- bounded typed arguments
+
+The external API never accepts arbitrary player GUIDs, names, SteamIds, component selectors, paths, URLs, console text, or tool names. The package maps an opaque bot handle to the exact spawned pawn internally. Stale generations fail closed.
+
+The package may record the engine GUID for diagnostics, but it must never fall back to the first controller, `Player.Local`, a name substring, or an arbitrary GUID when resolving a mutation target.
+
+Safe version-1 actions:
+
+- status
+- spawn one Operator
+- despawn
+- stop
+- bounded move
+- bounded look
+- memory list/get/upsert/delete
+
+Explicitly excluded from version 1:
+
+- attack or weapon use
+- SuperAdmin or rank assignment
+- shop, job, wallet, inventory, or economy actions
+- human targeting
+- arbitrary RPC
+- `console_command`
+- `execute_csharp`
+- arbitrary `call_tool`
+- editor, scene, package, asset, portal, Git, or filesystem mutation
+- unrestricted batches or parallel action queues
+
+## 7. Persistent intelligence
+
+Use a fixed `FileSystem.Data` prefix such as:
+
+```text
+intellibot/v1/operators/<operator-id>/
+├─ manifest.json
+├─ profile.json
+├─ state.json
+├─ episodes/
+│  └─ <episode-id>.json
+└─ summary-current.json
+```
+
+Rules:
+
+- Host-only writes.
+- No caller-controlled paths.
+- No provider credentials, prompts, transcripts, skills, raw SteamIds, player chat/audio/images, or human behavioral profiles.
+- Stored text is untrusted data, never executable instructions.
+- Version every schema.
+- Enforce record, byte, and retention limits.
+- Keep last-known-good generations and checksums because atomic replacement is not currently proven.
+- Corrupt or future-version data fails safely without destructive overwrite.
+- Missing memory must not prevent the Operator from spawning and stopping safely.
+- Provider-side memory may complement this store but is not its canonical owner.
+- Cross-machine synchronization and `FileSystem.OrganizationData` remain post-v1 decisions.
+- Game persistence and IntelliBot memory are separate domains. Synthetic actors must never enter normal player persistence.
+
+Suggested episode fields:
+
+- EpisodeId
+- OperatorId
+- SessionId
+- OccurredUtc
+- TaskSummary
+- OutcomeCode
+- Lessons
+- Tags
+- EvidenceRefs
+- SchemaVersion
+
+## 8. LUNA implementation slices and GROK gates
+
+| Slice | LUNA work | GROK acceptance |
+|---|---|---|
+| **G0 — governance and containment** | Implement and prove the transient-actor persistence exclusion under exact paths. Preserve `_dev` and unrelated dirty files. | Review payload-level negative proof. No bot fields may leave through player persistence. |
+| **A0 — asset custody** | Promote the chosen avatar and create provenance using the exact pins above. | Verify dimensions, hashes, legibility at avatar size, and no unrelated file changes. |
+| **P1 — repository and contracts** | Create the governed library scaffold, README, security contract, schemas, ADRs, and release verifier. No runtime integration yet. | Review package identity, dependency boundaries, schemas, and archive shape. |
+| **P2 — deterministic core** | Build provider-neutral contracts, bot registry, state machine, opaque handles, bounded actions, and canonical teardown. No DXRP references or MCP yet. | Run deterministic traces, stale-handle negatives, and cleanup tests. |
+| **P3 — memory** | Implement the fixed-path, versioned, bounded host-only store with corruption recovery and export/delete. | Restart/readback, quota, migration, corruption, isolation, and secret-shaped-input tests. |
+| **P4 — transport** | Implement the local stdio MCP sidecar and narrow loopback protocol. No broad editor bridge passthrough. | Verify schema hash, pairing, replay rejection, rate limits, deadman stop, and zero arbitrary tool/path access. |
+| **P5 — DXRP adapter** | Connect the reusable core to the existing DXRP player-prefab seam through an adapter. Keep LifePunch-specific code outside the core. | Source review for dependency isolation; confirm only registered synthetic actors can be controlled. |
+| **P6 — editor/eject gate** | Mount the candidate into the existing workbench under an exact GO. Do not edit `rp.sbproj` while the editor is open. Do not save the scene. | Fresh compile marker, exact spawned target, positive move/look, omitted/stale/wrong/human target negatives, cleanup, and render capture. |
+| **P7 — multiplayer** | Prepare the host-authoritative replication slice. | One host plus a real second client or machine; never a second editor. Verify replication, late join, disconnect, ownership rejection, and deadman behavior. |
+| **P8 — clean consumer** | Install the exact candidate through normal package resolution into a fresh unrelated s&box project. | Prove no local checkout, DXRP, LifePunch, private asset, or undocumented dependency is required. |
+| **P9 — release readiness** | Prepare manifest, license, changelog, migration/rollback notes, evidence index, version, and exact archive census. | Independent review and security gate. Bloodwave alone authorizes first commit, remote, push, package upload, and publication. |
+
+## 9. Required checks
+
+Every LUNA return must include:
+
+- exact changed files
+- exact commands/checks and exit results
+- path-scoped diff
+- `git diff --check`
+- JSON/schema parse results when applicable
+- forbidden-reference and secret-pattern scan
+- proof ceiling
+- anything unverified
+- confirmation that no commit, push, portal act, package publication, or scene save occurred unless separately authorized
+
+Runtime gates additionally require:
+
+- editor compile evidence whose timestamp postdates the write
+- an exact build/version marker proving the fresh assembly loaded
+- golden hash of the exposed tool schema
+- positive action proof and complete negative controls
+- serialized-payload proof that synthetic actors are absent from host persistence
+- persistence restart/readback with destination verification
+- unchanged `game.scene` and `rp.sbproj` pins unless an exact GO names them
+- render evidence inspected by Bloodwave
+- separate-client replication evidence
+- clean-consumer installation from the candidate package rather than a source checkout
+
+Static review cannot establish editor, runtime, visual, replication, privacy, publication, or deployment PASS.
+
+## 10. Decisions Bloodwave must ratify or amend
+
+Recommended defaults for a single ruling:
+
+1. Product owner: CAVELUX; DXRP/LifePunch are proving adapters only.
+2. Product name: IntelliBot.
+3. Description: “A persistent, MCP-controlled AI operator framework for s&box.”
+4. Package identity: `Org=cavelux`, `Ident=intellibot`, subject to availability verification.
+5. Repository destination: Bloodwave chooses whether the remote belongs under CAVELUX or `mragerlp`; do not infer from the current GitHub draft.
+6. License: name it before the first commit or public distribution.
+7. Version-1 actions: movement, look, stop, spawn/despawn, and structured memory only.
+8. Product transport: local MCP stdio sidecar plus game-initiated loopback WebSocket.
+9. Native editor MCP exposure: development adapter only, never the production authority boundary.
+10. Persistence: local per-game `FileSystem.Data`, no cross-machine sync in version 1.
+11. First implementation act: `LUNA-INTELLIBOT-G0`, followed by GROK review.
+12. No first commit, remote, push, s&box publication, or GitHub publication without a later principal word naming that act.
+
+## 11. Current proof ceiling
+
+Present evidence establishes:
+
+- current source structure
+- historical eject-plus-Host-Play proof
+- package-pattern precedent
+- selected avatar and pins
+- a source-proven synthetic-player persistence eligibility hazard
+
+Still UNVERIFIED:
+
+- fresh IntelliBot editor compile
+- actual outbound bot DTO contents
+- safe snapshot exclusion
+- loopback WebSocket behavior in the target engine
+- ownership behavior with a second client
+- persistent-memory implementation
+- package archive contents
+- clean-consumer installation
+- repository existence/visibility
+- final package identity
+- license
+- commit, push, publication, or deployment
+
+## Sources
+
+- [s&box file system](https://sbox.game/dev/doc/assets/file-system)
+- [s&box BaseFileSystem API](https://sbox.game/api/Sandbox.BaseFileSystem)
+- [s&box native editor MCP](https://sbox.game/dev/doc/editor/mcp-server)
+- [s&box WebSockets](https://sbox.game/dev/doc/networking/websockets)
+- [Model Context Protocol tools](https://modelcontextprotocol.io/specification/2025-11-25/server/tools)
+- [Model Context Protocol transports](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports)
+
+REQUESTED NEXT ACT: board the successor contract and cut only `LUNA-INTELLIBOT-G0`. GROK reviews after LUNA returns. Everything beyond G0 remains held behind that result.
+
+END OF INTELLIBOT-1 PRODUCT ARCHITECTURE PACKET  
+END OF INTELLIBOT-1 PRODUCT ARCHITECTURE PACKET
+
+Changed files: none.
+
+Checks:
+
+- `sbox-intellibot`: `git diff --check` exited `0` with no output. Its files are currently untracked, so that command does not validate their contents.
+- `dxrp-workbench`: `git diff --check` exited `0`; it reported only the existing LF→CRLF warning for `Ak47DevGive.cs`, with no whitespace-error failure.
+
+Unverified boundaries are listed in the packet; no editor, runtime, Git, portal, or publication action was performed.
